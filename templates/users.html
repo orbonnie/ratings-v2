@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+<div class="overflow-container">
+    <h1>All Users</h1>
+    <ul>
+        {% for u in users %}
+        <li>
+            <a href="/users/{{u.user_id}}">{{u.email}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

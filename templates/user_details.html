@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} - Details{% endblock %}
+
+{% block body %}
+<div class="overflow-container">
+    <h2>{{user.email}}'s Ratings</h2>
+    <ul>
+    {% for r in user.ratings %}
+        <li>{{r.movie.title}}: {{r.score}}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

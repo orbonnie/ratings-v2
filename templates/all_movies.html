@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Movies{% endblock %}
+
+{% block body %}
+<h1>All Movies</h1>
+<div class="scroll">
+  <ul>
+    {% for m in movies %}
+      <li>
+          <a href="/movies/{{ m.movie_id }}">{{ m.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

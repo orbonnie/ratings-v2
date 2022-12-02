@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}({{ movie.title }} - Details{% endblock %}
+
+{% block body %}
+
+    <h1>{{movie.title}}</h1>
+
+    <div class="main">
+        <aside class="aside" id="side-text">
+            <p class="side-p">{{movie.overview}}</p>
+            <h4>Average Rating: {{avg}}</h4>
+        </aside>
+        <aside class="aside" id="side-img">
+            <img src="{{movie.poster_path}}">
+        </aside>
+    </div>
+
+    {% if session.get('user_id') %}
+    <div class="rate-form">
+        <form action="/rate" method="POST">
+            RATE <input
+            type="number"
+            min="1"
+            max="5"
+            name ="score"
+            id="rate-num"
+        >
+            <input type="hidden" name="movie_id" value="{{movie.movie_id}}">
+            <input type="submit">
+        </form>
+    </div>
+    {% endif %}
+{% endblock %}
